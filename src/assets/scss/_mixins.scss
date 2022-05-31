@@ -1,0 +1,23 @@
+@import "variables";
+
+@mixin padding($v,$h){
+    padding:$v $h
+}
+
+@mixin margin($v,$h){
+    margin:$v $h
+}
+
+@mixin cursor($type) {
+    cursor: $type;
+}
+
+@mixin border-color($color){
+    border:.063rem solid $color
+}
+
+@mixin flexbox-layout {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}

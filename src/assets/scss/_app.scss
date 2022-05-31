@@ -1,0 +1,128 @@
+
+@import "variables";
+@import "mixins";
+
+html, body{
+    background-color: #eef2ff;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+ul {
+    @include padding(0, 0);
+}
+li {
+   @include margin(0, .625rem);
+}
+h1{
+    text-align: center;
+    font-size:$font-size-large;
+    @include margin(2.5rem, 0)
+}
+fieldset{
+    @include margin(0, 0);
+    @include padding(0, 0);
+    border:none;
+}
+#app{
+    @include margin(3.75rem, 0);
+}
+.container{
+    max-width:25rem;
+    @include margin(0 ,auto);
+    line-height:1.5rem;
+    font-size:$font-size-default;
+    background-color: $bg-white;
+    @include padding(.313rem, 1.25rem);
+    border-radius:$border-radius;
+    box-shadow: 0 0 .313rem $border-gray-100;
+}
+.footer-panel{
+    @include flexbox-layout;
+    @include margin(2.5rem, 0)
+}
+.button{
+    display:inline-block;
+    @include padding(.5rem, 1.25rem);
+    background-color:$bg-blue-800;
+    color:$text-white;
+    border-radius:$border-radius;
+   @include cursor(pointer);
+   @include border-color(transparent);
+    font-weight:600;
+    &:hover{
+        background-color:$bg-blue-700;
+    };
+    &:disabled{
+        @include cursor(default);
+        opacity:0.75;
+    }
+    &:focus{
+        outline:none
+    }
+}
+label{
+    display:block;
+    font-size:$font-size-small;
+    color:$text-gray;
+}
+input[type=text],[type=email]{
+    border-radius:$border-radius;
+    box-sizing:border-box;
+    width:100%;
+    @include border-color(#D1D5DB);
+    @include padding(.5rem, 1.25rem);
+    box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    &:focus{
+        @include border-color(#4338CA) ; 
+        outline:none;
+    }
+    &:hover{
+        @include border-color(#9CA3AF);
+    }
+}
+.form-terms{
+    @include flexbox-layout;
+}
+.form-fields{
+    @include margin(1.25rem, auto);
+}
+.loader{
+    @include flexbox-layout;
+    .animate-spin{
+        pointer-events: none;
+        width:1rem;
+        height:1rem;
+        @include margin(0, 0.3rem);
+        animation: spin 1s linear infinite;
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+    }
+}
+.user-info{ 
+    display:flex;
+    flex-direction:column;
+    p,img, .link-text{
+        @include margin(1rem, auto)
+    }
+    .link-text{
+        color:$text-blue
+    }
+}
+.error{
+    color:$text-red;
+    font-size:$font-size-small;
+    @include margin(.063rem, auto)
+}
+.view-enter-active,
+.view-leave-active {
+  transition: opacity 1s ease;
+}
+.view-enter-from,
+.view-leave-to {
+  opacity: 0;
+}
